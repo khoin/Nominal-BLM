@@ -1,0 +1,302 @@
+<!DOCTYPE HTML5>
+<!--
+	POTASMIC @ PUTHTML
+	http://kh01.me
+	@potasmic on Twitter
+	//Theme 1: BG: #fcde21 FG: #3d3508
+	//Theme 2: BG: #874724 FG: #92E7C5
+-->
+<html>
+	<head>
+		<title>NOMINAL, BABE</title>
+		<meta charset="utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="s/soundmanager2-nodebug-jsmin.js"></script>
+		
+		<style>
+			body { background: #874724; margin: 0;  }
+			a { color: #92E7C5; text-decoration: none; background: rgba(255,255,255,0.2); line-height:110%;
+			-webkit-transition: .2s all ease; -moz-transition: .2s all ease; transition: .2s all ease;
+			}
+			a:hover { background: rgba(255,255,255,1); color: black; }
+			.row { display:table-row; }
+			#hello { position:fixed; width:100%; height: 100%; top:0; left:0; z-index:999; background: #874724;
+			 color:#eee; font-size:120%; font-family:'Oswald',sans-serif; padding: 5%; font-weight:400;  }
+			#instructions * {font-weight:300;}
+			#wrapper{ display:table; width: 100%; height: 100%; }
+			#center { display:table-cell; vertical-align: middle; text-align: center; 
+						width:0; height: 0; position: relative; }
+			#q, #center *, #down *, #bar, #vox { -webkit-transition: .2s all ease; -moz-transition: .2s all ease; transition: .2s all ease; }
+			
+			.e { position: absolute; }
+			
+			/** Anchors **/
+			#aanchor { position:relative; width:0; height:0; margin-left:0%; display: inline-block; }
+			#center div:not(:first-child) { position:relative; width:0; height:0; margin-left:9%; display: inline-block; }
+			
+			
+			#up { vertical-align: bottom; display: table-cell; text-align: center; width:0; height:0; position: relative;} 
+			
+			#p {margin-left:9%; -webkit-transition:1s all ease; -moz-transition: 1s all ease; transition: 1s all ease; }
+			#q, #p { background: #92E7C5; width: 325px; height: 30px; display:inline-block; margin-bottom:25px;}
+			#six {width: 100px; height:100px; display:inline-block; margin-left:9%; 
+			background: #92E7C5; -moz-transform:rotateZ(45deg) scale(0.75);-webkit-transform:rotateZ(45deg) scale(0.75);transform:rotateZ(45deg) scale(0.75);}
+			
+			#down { vertical-align: top; display: table-cell; text-align: center; width:0; height:0; position: relative;} 
+			#down div { display: inline-block; width:100px; height: 40px; }
+			.k { background: #92E7C5;}
+			#down div:not(:first-child) {
+				margin-left:9%;
+			}
+			.v { background: #874724; box-sizing:border-box; border: 10px #92E7C5 solid; }
+			.x { display:inline-block; width:60px; }
+			.show { opacity: 1!important; }
+		</style>
+	</head>
+	
+	<body>
+		<div id="help" style="padding: 10px 20px; position:fixed; bottom: 0; width:100%; font-family:'Oswald',sans-serif; font-size:120%; color:#92E7C5; opacity:0;">
+			A,S: Kick<div class="x"></div>E,D: Snare<div class="x"></div>F: Snap<div class="x"></div>N,O,M,I,J,L: Bells<div class="x"></div>Q: Intro Bell<div class="x"></div>P: Siren
+			<div class="x"></div>Z,X,C,V: Vocals
+		</div>
+		
+		<div id="hello">
+			 <h1>BABE, LEMME LEMME LEMME LEMME</h1>
+			 <div style="width:50%; height:2px; background:#eee;margin-top:10px;"></div>
+			 <br/>
+			 <div style="width:30%;height:16px;box-sizing:border-box;display:inline-block;border:2px white solid;"><div id="bar" style="width:0%;height:100%;background:white;"></div></div>&nbsp;<span id="loadd">0</span><span>/17 samples loaded</span><br/><br/>
+			 <div id="instructions" style="font-weight:200!important;">
+			 Press N, O, M, I, L, J for bells.<br/>
+			 Press Q, P for intro bell and siren.<br/>
+			 Press A, S, D, F, E for percussions.<br/>
+			 Press Z, X, C, V for vocals
+			 Press Spacebar to show this reference</br>
+			 </div>
+			 <h1 id="letin" style="color:#92E7C5; display:none; cursor: pointer;">BABY LET ME >></h1>
+			 <div style="font-weight:300;">
+				 Made with ♥ from <a href="http://audiotool.com/user/khoi98">Potasmic</a> with the help from <a href="http://jquery.com">jQuery</a> &amp; <a href="http://schillmania.com/projects/soundmanager2/">SoundManager2</a>.
+				 <br>Inspired by Jonobr1's <a href="http://patatap.com">Patatap</a>. Music by <a href="http://www.audiotool.com/track/baby_let_me/">Nominal</a> at <a href="http://audiotool.com">Audiotool</a>.<br/>
+				 <a href="http://github.com/potasmic/Nominal-BLM">Fork me on GitHub</a>.
+			 </div>
+		</div>
+		
+		<div id="vox" style="position:fixed; z-index:2; top:0;left:0; width:100%;height:100%; box-sizing:border-box; background:transparent;border-color:#92E7C5; border-style:solid; border-width:0;">
+		
+		
+		</div>
+		
+		<div id="wrapper">
+		<div class="row">
+			<div id="up">
+				<div id="q"></div>
+				<div id="six" style=""></div>
+				<div id="p"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="center">
+				<div id="aanchor" style="width:100px; height: 100px; background: #92E7C5; box-sizing:border-box " >
+				</div>
+				<div id="banchor" style="width:100px; height: 100px; box-shadow:inset #92E7C5 0 0 0px 20px; border-radius:50%;">
+				</div>
+				<div id="canchor" style="width:100px; height: 100px; background: #92E7C5; box-sizing:border-box; border:#874724 dotted 33px;">
+				</div>
+				<div id="danchor" style="width:100px; height: 100px; box-shadow:inset #92E7C5 0 0 0px 20px; border-radius:50%;">	
+				</div>
+				<div id="eanchor" style="width:100px; height: 100px; background: #92E7C5; box-sizing:border-box;">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="down">
+				<div id="ka" class="k"></div>
+				<div id="kb" class="v"></div>
+				<div id="kc" class="k"></div>
+				<div id="kd" class="v"></div>
+				<div id="ke" class="k"></div>
+			</div>
+		</div>
+		</div>
+		
+		<script>
+		console.log("Glad you checked this out.");
+		var a = $("#aanchor"); var b = $("#banchor"); var c = $("#canchor"); var d = $("#danchor"); var ea = $("#eanchor"); 
+		var f = $("#six");
+		var q = $("#q"), p = $("#p");
+		var ka = $("#ka"), kb = $("#kb"), kc = $("#kc"), kd = $("#kd"), ke = $("#ke");
+		
+		soundManager.setup({
+		  url: 's/soundmanager2.swf',
+		  ontimeout: function() {
+			alert("Your browser does not support Audio features.");
+		  },
+		  onready: function() {
+				loadSounds();
+		  }
+		});
+		
+		function check() {
+			var count =  soundManager.soundIDs.length;
+			var ss = 0;
+			for(i=0; i<count; i++ ) {
+				if(soundManager.sounds[soundManager.soundIDs[i]].readyState === 3) {
+					ss++;
+				}
+			}
+			var percent = Math.round((ss/count)*100);
+			$("#loadd").text(ss); console.log(percent);
+			$("#bar").css("width",percent+"%");
+			if(ss===count) {
+				clearInterval(interval);
+				$("#letin").show().on("click",function() {$("#hello").animate({"opacity":"0", "z-index":"-999"},300);});
+				$("#bar").css("width",100+"%");
+			}
+		}
+		
+		function loadSounds() {
+			window.interval = setInterval(check,100);
+			window.note1 = soundManager.createSound({
+					url: 's/one.mp3',
+					autoLoad: true
+			});
+			window.note2 = soundManager.createSound({
+					url: 's/two.mp3',
+					autoLoad: true
+			});
+			window.note3 = soundManager.createSound({
+					url: 's/three.mp3',
+					autoLoad: true
+			});
+			window.note4 = soundManager.createSound({
+					url: 's/four.mp3',
+					autoLoad: true
+			});
+			window.note5 = soundManager.createSound({
+					url: 's/five.mp3',
+					autoLoad: true
+			});
+			window.note6 = soundManager.createSound({
+					url: 's/six.mp3',
+					autoLoad: true
+			});
+			window.kick = soundManager.createSound({
+					url: 's/kick.mp3',
+					autoLoad: true
+			});
+			window.kick2 = soundManager.createSound({
+					url: 's/kick2.mp3',
+					autoLoad: true
+			});
+			window.snare = soundManager.createSound({
+					url: 's/snare.mp3',
+					autoLoad: true
+			});
+			window.snap = soundManager.createSound({
+					url: 's/snap.mp3',
+					autoLoad: true
+			});
+			window.pong = soundManager.createSound({
+					url: 's/pong.mp3',
+					autoLoad: true
+			});
+			window.siren = soundManager.createSound({
+					url: 's/siren.mp3',
+					autoLoad: true
+			});
+			window.ssnare = soundManager.createSound({
+					url: 's/smallsnare.mp3',
+					autoLoad: true
+			});
+			window.baby = soundManager.createSound({
+					url: 's/baby.mp3',
+					autoLoad: true
+			});
+			window.letme = soundManager.createSound({
+					url: 's/letme.mp3',
+					autoLoad: true
+			});
+			window.letme2 = soundManager.createSound({
+					url: 's/letme2.mp3',
+					autoLoad: true
+			});
+			window.iwont = soundManager.createSound({
+					url: 's/iwont.mp3',
+					autoLoad: true
+			});
+		}
+		
+		function playAsset(as,element,del) {
+		if(typeof del === "undefined") { del = 100; }
+			as.play();
+			element.css("opacity",1);
+			setTimeout(function() { element.css("opacity",0);}, del);
+		}
+		
+		function playVox(au,side) {
+		if(typeof side !== "string") { return false; }
+			au.play();
+			$("#vox").css("border-"+side+"-width",40+"px");
+			setTimeout(function() { $("#vox").css("border-"+side+"-width",0+"px");}, 303);
+		}
+		
+		$(document).on("keydown", function(e) {
+			//N : 78   //O : 79  //M : 77   
+			//I : 73   //L : 76  //J : 74
+			//Q : 81
+			//P : 80
+			//A : 65    //F: 70
+			//S : 83    //D: 68
+			//E : 69
+			//Spacebar: 32
+			//Z,X,C,V: 90 88 67 86
+			//console.log(e.which);
+			switch(e.which) {
+				case 73: playAsset(note1,a);
+				break;
+				case 78: playAsset(note2,b);
+				break;
+				case 76: playAsset(note3,c); 
+				break;
+				case 77: playAsset(note4,d);
+				break; 
+				case 79: playAsset(note5,ea);
+				break;
+				case 74: playAsset(note6,f);
+				break;
+				case 81: playAsset(pong,q);
+				break;
+				case 80: playAsset(siren,p,300);
+				break;
+				case 65: playAsset(kick2,ka);
+				break;
+				case 83: playAsset(kick,kb);
+				break;
+				case 70: playAsset(snap,kd);
+				break;
+				case 68: playAsset(snare,kc);
+				break;
+				case 69: playAsset(ssnare,ke);
+				break;
+				case 32: toggleReference();
+				break;
+				case 90: playVox(baby,"top");
+				break;
+				case 88: playVox(letme,"left");
+				break;
+				case 67: playVox(letme2,"right");
+				break;
+				case 86: playVox(iwont,"bottom");
+				break;
+			}
+		});
+		
+		function toggleReference() {
+			$("#help").toggleClass("show");
+		}
+		
+		</script>
+		
+	</body>
+	
+</html>
